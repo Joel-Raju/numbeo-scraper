@@ -6,10 +6,12 @@ function parseCostOfLiving(HTMLString, knownCategories) {
 	let trList = $('.data_wide_table').find('tr');
 	let responseObj = {};
 	let category = '';
+  // trList = Array.prototype.slice.call(trList);
 	Object.keys(trList).map(key => {
 		let row = $(trList[key]);
 		if (row.find('.highlighted_th').length) {
-			let title = row.find('.highlighted_th')[0].innerText;
+			let title = row.children()[0].innerText;
+      console.log(title);
 			category = getKnownCategory(title);
 			if (category.trim()) {
 				responseObj[category] = knownCategories[category];

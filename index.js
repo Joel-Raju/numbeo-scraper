@@ -37,7 +37,7 @@ app.get(CONSTANTS.ENDPOINTS.FIND_CITY, (req, res) => {
 });
 
 app.get('*', (req, res) => {
-	res.send({ Error: 'no route'});
+	res.send({ Error: 'nothing to see here'});
 });
 
-app.listen(CONSTANTS.PORT, () => console.log('Server running at 3000'));
+app.listen(process.env.port || CONSTANTS.PORT, () => console.log('Server running at 3000'));
